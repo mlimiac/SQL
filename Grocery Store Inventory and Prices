@@ -1,0 +1,18 @@
+Create table Groceries (id integer primary key, name text, type text, unit integer, price integer);
+Insert into Groceries VALUES
+(1, "snapper", "seafoods", 75, 20),
+(2, "apple", "fruits", 300, 1.5),
+(3, "lettuce", "produce", 150, 2.99),
+(4, "banana", "fruits", 200, 0.99),
+(5, "squid", "seafoods", 80, 4.5),
+(6, "cabbage", "produce", 100, 2.50),
+(7, "strawberry", "fruits", 500, 1.50),
+(8, "beets", "produce", 60, 1.50),
+(9, "salmon", "seafoods", 150, 10.99),
+(10, "shrimp", "seafoods", 500, 3.99),
+(11, "orange", "fruits", 600, 1.79),
+(12, "kale", "produce", 100, 1.75),
+(13, "spinach", "produce", 150, 1.25),
+(14, "onion", "produce", 300, 0.99),
+(15, "peach", "fruits", 250, 1.99);
+SELECT * FROM Groceries;
