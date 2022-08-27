@@ -1,0 +1,63 @@
+# For this SQL project, I analyzed a dataset called "Chinook," which is a digital media store.The data includes tables for artists, albums, customers, 
+employees, genres, invoices, media tacks, playlists.
+#Below are some SQL queries using SQLiteStudio
+
+
+1.Show Customers (their full names, customer ID, and country) who are not in the US. 
+select firstname, lastname, customerID, country
+from customers 
+Where country <>"USA"
+group by firstname
+
+2.Show only the Customers from Brazil.
+select firstname, lastname, customerID, country
+from customers 
+Where country = "Brazil"
+group by firstname
+
+3.Find the Invoices of customers who are from Brazil.
+The resulting table should show the customer's full name, Invoice ID, Date of the invoice, and billing country.
+select c.FirstName, c.Lastname, I.InvoiceID, I.InvoiceDate, I.BillingCountry
+from Invoices I
+ Join customers c
+On I.CustomerId = c.CustomerId
+where country = "Brazil"
+Group by C.FirstName;
+
+
+4. Show the Employees who are Sales Agents.
+select EmployeeID, LastName, FirstName, Title
+from employees
+where title like "%agent%"
+
+
+5. Find a unique/distinct list of billing countries from the Invoice table.
+Select distinct(billingCountry)
+from Invoices
+
+6. Provide a query that shows the invoices associated with each sales agent. 
+The resulting table should include the Sales Agent's full name.
+select e.firstname, e.lastname, e.title, i.invoiceID
+from employees e
+join invoices i
+on e.employeeID = i.InvoiceId
+where e.title like "%agent%"
+group by e.firstname
+
+7.How many Invoices were there in 2009?
+Select Count(InvoiceID)
+from invoices
+where Invoicedate like "%2009%"
+
+8.What are the total sales for 2009?
+select sum(total)
+from invoices
+where Invoicedate like "%2009%"
+
+9. Write a query that includes the purchased track name with each invoice line item.
+select t.name, i.invoiceLineId
+from invoice_items i 
+ join tracks t
+on i.trackID = t.TrackID
+group by t.trackID
+
