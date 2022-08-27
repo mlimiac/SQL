@@ -45,3 +45,11 @@ select product, sum(quantity)
 from FebSales
 where location like '%Los Angeles%'
 Group by product
+
+#9. Which locations in New York received at least 3 orders in January,
+ and how many orders did they each receive? 
+Select Distinct location, count(orderID)
+from JanSales
+where location like "%NY%"
+group by orderID
+having count (orderID) >2;
